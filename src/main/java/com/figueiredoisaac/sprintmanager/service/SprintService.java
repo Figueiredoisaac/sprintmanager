@@ -1,12 +1,12 @@
-package figueiredoisaac.com.sprintmanager.service;
+package com.figueiredoisaac.sprintmanager.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import figueiredoisaac.com.sprintmanager.model.Sprint;
-import figueiredoisaac.com.sprintmanager.repository.SprintRepository;
+import com.figueiredoisaac.sprintmanager.model.Sprint;
+import com.figueiredoisaac.sprintmanager.repository.SprintRepository;
 
 @Service
 	public class SprintService {

@@ -1,7 +1,7 @@
-package figueiredoisaac.com.sprintmanager.dto;
+package com.figueiredoisaac.sprintmanager.dto;
 
-import figueiredoisaac.com.sprintmanager.model.Task;
-import figueiredoisaac.com.sprintmanager.model.TaskStatus;
+import com.figueiredoisaac.sprintmanager.model.Task;
+import com.figueiredoisaac.sprintmanager.model.TaskStatus;
 
 public class TaskDTO {
 	private Long id;

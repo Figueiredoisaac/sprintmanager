@@ -1,10 +1,10 @@
-package figueiredoisaac.com.sprintmanager.dto;
+package com.figueiredoisaac.sprintmanager.dto;
 
 import java.util.Date;
 import java.util.List;
 
-import figueiredoisaac.com.sprintmanager.model.Backlog;
-import figueiredoisaac.com.sprintmanager.model.Sprint;
+import com.figueiredoisaac.sprintmanager.model.Backlog;
+import com.figueiredoisaac.sprintmanager.model.Sprint;
 
 public class SprintDTO {
 	

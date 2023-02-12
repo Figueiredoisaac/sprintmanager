@@ -1,6 +1,6 @@
-package figueiredoisaac.com.sprintmanager.dto;
+package com.figueiredoisaac.sprintmanager.dto;
 
-import figueiredoisaac.com.sprintmanager.model.Backlog;
+import com.figueiredoisaac.sprintmanager.model.Backlog;
 
 public class BacklogDTO {
     private Long id;

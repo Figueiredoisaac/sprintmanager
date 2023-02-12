@@ -1,4 +1,4 @@
-package figueiredoisaac.com.sprintmanager.model;
+package com.figueiredoisaac.sprintmanager.model;
 
 public enum TaskStatus {
     Novo,

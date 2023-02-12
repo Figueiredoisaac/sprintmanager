@@ -1,4 +1,4 @@
-package figueiredoisaac.com.sprintmanager.controller;
+package com.figueiredoisaac.sprintmanager.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import figueiredoisaac.com.sprintmanager.model.Backlog;
-import figueiredoisaac.com.sprintmanager.model.Task;
-import figueiredoisaac.com.sprintmanager.service.TaskService;
+import com.figueiredoisaac.sprintmanager.model.Backlog;
+import com.figueiredoisaac.sprintmanager.model.Task;
+import com.figueiredoisaac.sprintmanager.service.TaskService;
 
 @RestController
 @RequestMapping("/api/backlogs/{backlogId}/tasks")

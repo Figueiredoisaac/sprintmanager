@@ -1,11 +1,12 @@
-package figueiredoisaac.com.sprintmanager.service;
+package com.figueiredoisaac.sprintmanager.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import figueiredoisaac.com.sprintmanager.model.Backlog;
-import figueiredoisaac.com.sprintmanager.repository.BacklogRepository;
+
+import com.figueiredoisaac.sprintmanager.model.Backlog;
+import com.figueiredoisaac.sprintmanager.repository.BacklogRepository;
 
 @Service
 public class BacklogService {

@@ -1,4 +1,4 @@
-package figueiredoisaac.com.sprintmanager.service;
+package com.figueiredoisaac.sprintmanager.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import figueiredoisaac.com.sprintmanager.model.User;
-import figueiredoisaac.com.sprintmanager.repository.UserRepository;
+import com.figueiredoisaac.sprintmanager.model.User;
+import com.figueiredoisaac.sprintmanager.repository.UserRepository;
 
 @Service
 public class UserService {

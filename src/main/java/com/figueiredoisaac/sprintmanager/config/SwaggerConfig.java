@@ -1,4 +1,4 @@
-package figueiredoisaac.com.sprintmanager.config;
+package com.figueiredoisaac.sprintmanager.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

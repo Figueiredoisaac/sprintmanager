@@ -1,4 +1,4 @@
-package figueiredoisaac.com.sprintmanager.model;
+package com.figueiredoisaac.sprintmanager.model;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
