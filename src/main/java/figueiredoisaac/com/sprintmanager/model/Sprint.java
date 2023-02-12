@@ -3,14 +3,14 @@ package figueiredoisaac.com.sprintmanager.model;
 import java.util.Date;
 import java.util.List;
 
-import jakarta.persistence.Basic;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Table;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 @Entity
 @Table (name="Sprints")
@@ -26,7 +26,7 @@ public class Sprint {
 		private Date dtBegin;
 	    private Date dtEnd;
 	    private String description;
-	    private Integer progress;
+	    private Boolean status;
 	    
 	    @ManyToMany (mappedBy="sprints")
 	    private List<Backlog> backlogs;
@@ -62,11 +62,11 @@ public class Sprint {
 		public void setDescription(String description) {
 			this.description = description;
 		}
-		public Integer getProgress() {
-			return progress;
+		public Boolean getStatus() {
+			return status;
 		}
-		public void setProgress(Integer progress) {
-			this.progress = progress;
+		public void setStatus(Boolean status) {
+			this.status = status;
 		}
 		public List<Backlog> getBacklogs() {
 			return backlogs;
