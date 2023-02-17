@@ -2,20 +2,21 @@ package com.figueiredoisaac.sprintmanager.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
-import springfox.documentation.builders.PathSelectors;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Info;
 
 @Configuration
-@EnableSwagger2
-public class SwaggerConfig{
-    @Bean
-    public Docket api() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .select()
-                .paths(PathSelectors.any())
-                .build();
-    }
-    
+@EnableWebMvc
+public class SwaggerConfig {
+	@Bean
+    public OpenAPI customOpenAPI() {
+        return new OpenAPI().info(
+                new Info()
+                .title("API REST SprintManager")
+                .version("v1")
+                .description("Project SprintManager")
+                );
+        		}
 }

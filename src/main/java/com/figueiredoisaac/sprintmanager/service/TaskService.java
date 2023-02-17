@@ -3,10 +3,12 @@ package com.figueiredoisaac.sprintmanager.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.figueiredoisaac.sprintmanager.model.Task;
 import com.figueiredoisaac.sprintmanager.repository.TaskRepository;
 
+@Service
 public class TaskService {
 	@Autowired
 	private final TaskRepository taskRepository;
