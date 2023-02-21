@@ -4,26 +4,11 @@ import com.figueiredoisaac.sprintmanager.model.Task;
 import com.figueiredoisaac.sprintmanager.model.TaskStatus;
 
 public class TaskDTO {
-	private Long id;
+	
+	private String title;
 	private String description;
 	private Long timeExpended;
-	private TaskStatus status;
 	
-	public TaskDTO() { }
-	
-	public TaskDTO(Task task) {
-		this.id = task.getId();
-		this.description = task.getDescription();
-		this.timeExpended = task.getTimeExpended();
-		this.status = task.getStatus();
-	}
-	
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
 	public String getDescription() {
 		return description;
 	}
@@ -36,20 +21,19 @@ public class TaskDTO {
 	public void setTimeExpended(Long timeExpended) {
 		this.timeExpended = timeExpended;
 	}
-	public TaskStatus getStatus() {
-		return status;
+	public String getTitle() {
+		return title;
 	}
-	public void setStatus(TaskStatus status) {
-		this.status = status;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	
 	public Task toTask() {
 		Task task = new Task();
-		task.setId(this.id);
+		task.setTitle(this.title);
 		task.setDescription(this.description);
 		task.setTimeExpended(this.timeExpended);
-		task.setStatus(this.status);
-		
+		task.setStatus(TaskStatus.Novo);
 		return task;
 	}
 }

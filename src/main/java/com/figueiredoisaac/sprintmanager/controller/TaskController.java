@@ -14,17 +14,24 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.figueiredoisaac.sprintmanager.dto.TaskDTO;
+import com.figueiredoisaac.sprintmanager.model.Backlog;
 import com.figueiredoisaac.sprintmanager.model.Task;
+import com.figueiredoisaac.sprintmanager.service.BacklogService;
 import com.figueiredoisaac.sprintmanager.service.TaskService;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
+@Tag( name = "Tasks", description = "Endpoints das Tasks")
 @RequestMapping("/api/tasks")
 public class TaskController {
 
 	  @Autowired
 	  private TaskService taskService;
+	  @Autowired
+	  private BacklogService backlogService;
 
 	  @GetMapping
 	  @Operation(summary = "Retorna uma Task")
@@ -42,10 +49,17 @@ public class TaskController {
 	    return ResponseEntity.notFound().build();
 	  }
 
-	  @PostMapping
+	  @PostMapping("/{idBacklog}")
 	  @Operation(summary = "Cria uma nova Task")
-	  public Task createTask(@RequestBody Task task) {
-	    return taskService.save(task);
+	  public ResponseEntity<Task> createTask(@RequestBody TaskDTO taskDTO, @PathVariable Long idBacklog) {
+		  Optional<Backlog> backlogToAdd = Optional.ofNullable(backlogService.findById(idBacklog));
+		  if (backlogToAdd.isPresent()) {
+			  Backlog backlog = backlogToAdd.get();
+			  Task task = taskDTO.toTask();
+			  task.setBacklog(backlog);
+			  return ResponseEntity.ok(taskService.save(task));
+		  }
+		  return ResponseEntity.notFound().build();
 	  }
 
 	  @PutMapping("/{id}")
@@ -62,7 +76,7 @@ public class TaskController {
 	    }
 	    return ResponseEntity.notFound().build();
 	  }
-
+	  
 	  @DeleteMapping("/{id}")
 	  @Operation(summary = "Deleta uma Task especifica")
 	  public ResponseEntity<Void> deleteTask(@PathVariable Long id) {

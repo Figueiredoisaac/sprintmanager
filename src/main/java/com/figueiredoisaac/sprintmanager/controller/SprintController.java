@@ -14,22 +14,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.figueiredoisaac.sprintmanager.model.Backlog;
+import com.figueiredoisaac.sprintmanager.dto.SprintDTO;
 import com.figueiredoisaac.sprintmanager.model.Sprint;
-import com.figueiredoisaac.sprintmanager.service.BacklogService;
 import com.figueiredoisaac.sprintmanager.service.SprintService;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping("/api/sprints")
+@Tag( name = "Sprints", description = "Endpoints das Sprints")
 public class SprintController {
 
-  @Autowired
-  private SprintService sprintService;
-  
-  @Autowired
-  private BacklogService backlogService;
+	@Autowired
+	private SprintService sprintService;
+
 
   @GetMapping
   @Operation(summary = "Retorna uma Sprint")
@@ -49,7 +48,8 @@ public class SprintController {
 
   @PostMapping
   @Operation(summary = "Cria uma nova Sprint")
-  public Sprint createSprint(@RequestBody Sprint sprint) {
+  public Sprint createSprint(@RequestBody SprintDTO sprintDTO) {
+	  Sprint sprint = sprintDTO.toSprint();
     return sprintService.save(sprint);
   }
 
@@ -68,19 +68,6 @@ public class SprintController {
       return ResponseEntity.ok(sprintService.save(updatedSprint));
     }
     return ResponseEntity.notFound().build();
-  }
-  @PutMapping("/{idSprint}/backlog/{idBacklog}")
-  @Operation(summary = "Adiciona um Backlog em uma sprint")
-  public ResponseEntity<Sprint> addBacklog(@PathVariable Long idSprint, @PathVariable Long idBacklog ){
-	  Optional<Sprint> currentSprint = Optional.ofNullable(sprintService.findById(idSprint));
-	  Optional<Backlog> newBacklog = Optional.ofNullable(backlogService.findById(idBacklog));
-	    if (newBacklog.isPresent()&&currentSprint.isPresent()) {
-	    	Sprint updatedSprint = currentSprint.get();
-	    	Backlog backlogToAdd = newBacklog.get();
-	    	updatedSprint.addBacklog(backlogToAdd);
-	    	return ResponseEntity.ok(sprintService.save(updatedSprint));
-	    }
-	    return ResponseEntity.notFound().build();
   }
   
 

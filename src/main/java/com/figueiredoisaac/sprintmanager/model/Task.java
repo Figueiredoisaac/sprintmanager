@@ -1,14 +1,12 @@
 package com.figueiredoisaac.sprintmanager.model;
 
-import java.util.List;
-
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -20,12 +18,13 @@ public class Task {
 	@Column(nullable=false, unique=true)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	private String title;
 	private String description;
 	private Long timeExpended;
 	private TaskStatus status;
 	
-	@ManyToMany(mappedBy="tasks")
-	private List<Backlog> backlogs;
+	@ManyToOne
+	private Backlog backlog;
 	
 	
 	
@@ -53,12 +52,20 @@ public class Task {
 	public void setStatus(TaskStatus status) {
 		this.status = status;
 	}
-	public List<Backlog> getBacklogs() {
-		return backlogs;
+	public Backlog getBacklog() {
+		return backlog;
 	}
-	public void addBacklog(Backlog backlog) {
-		this.backlogs.add(backlog);
+	public void setBacklog(Backlog backlog) {
+		this.backlog = backlog;
 	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+
 
 	
 }

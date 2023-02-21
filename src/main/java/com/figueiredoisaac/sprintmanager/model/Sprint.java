@@ -74,9 +74,6 @@ public class Sprint {
 		public void setBacklogs(List<Backlog> backlogs) {
 			this.backlogs = backlogs;
 		}
-		public void addBacklog(Backlog backlog) {
-			this.backlogs.add(backlog);
-		}
 		
 	    
 	    
